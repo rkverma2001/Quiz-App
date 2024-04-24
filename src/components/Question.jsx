@@ -42,6 +42,11 @@ const Question = ({ question, onAnswerSelected, onNextQuestion }) => {
     setTimer(15);
   };
 
+  const handleSkipQuestion = () => {
+    setTimer(15);
+    onNextQuestion();
+  };
+
   return (
     <div className="question-container">
       <h2 className="question-title">{question.question}</h2>
@@ -55,6 +60,9 @@ const Question = ({ question, onAnswerSelected, onNextQuestion }) => {
           {answer}
         </button>
       ))}
+      <button className="skip-button" onClick={handleSkipQuestion}>
+        Skip Question
+      </button>
     </div>
   );
 };
